@@ -1,0 +1,23 @@
+{
+  "countries": [],
+  "users": [
+    {
+      "name": "test",
+      "email": "test",
+      "password": "test",
+      "id": 1
+    },
+    {
+      "name": "123",
+      "email": "asdf11",
+      "password": "test",
+      "id": 2
+    },
+    {
+      "name": "Test Test",
+      "email": "test",
+      "password": "test",
+      "id": 3
+    }
+  ]
+}

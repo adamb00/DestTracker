@@ -1,0 +1,56 @@
+@mixin card($dark: true, $watchList: false) {
+   min-width: 80%;
+   min-height: 60%;
+   @if $dark {
+      border: 1px solid $color-grey-dark-1;
+   } @else {
+      border: 1px solid $color-grey-light-1;
+   }
+
+   display: flex;
+   flex-direction: column;
+   gap: 5rem;
+   @if ($watchList: true) {
+      gap: 2rem;
+   }
+
+   &--image {
+      width: 100%;
+      height: 40%;
+   }
+   &--details {
+      @if $dark {
+         color: $color-grey-dark-2;
+      } @else {
+         color: $color-grey-light-2;
+      }
+      @if ($watchList: true) {
+         padding: 2rem;
+      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      .key {
+         color: $color-primary;
+         font-size: 1.5rem;
+      }
+      .value {
+         font-size: 1.4rem;
+         font-style: italic;
+      }
+   }
+   &--languages {
+      display: contents;
+   }
+   @if ($watchList: true) {
+      &--buttons {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 2rem;
+         margin-bottom: 2rem;
+      }
+   }
+}
