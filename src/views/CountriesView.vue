@@ -56,42 +56,6 @@
       }
    };
 
-   // const addToWatchList = async (country: Country) => {
-   //    if (loggedIn.value) {
-   //       const user: User = (await axios.get(BASE_URL + 'users' + '/' + loggedIn.value.id)).data;
-   //       let exist = false;
-   //       user.countries.forEach(x => {
-   //          if (x.name.common === country.name.common) exist = true;
-   //       });
-
-   //       if (!exist) {
-   //          user.countries.push(country);
-   //          loggedIn.value.countries.push(country);
-   //          try {
-   //             await axios.patch(BASE_URL + 'users' + '/' + user.id, user);
-   //          } catch (err) {
-   //             console.log(err);
-   //          }
-   //       }
-   //    }
-   // };
-
-   // const addToMostRelevant = async (country: Country) => {
-   //    const res = (await axios.get(BASE_URL + 'most-relevant')).data;
-   //    let id: number;
-   //    if (res.length === 0) id = 1;
-   //    else {
-   //       const lastID = res.at(-1).id;
-   //       id = lastID + 1;
-   //    }
-   //    country.id = id;
-   //    let exist = false;
-   //    for (const r in res) {
-   //       if (res[r].name.common.trim() === country.name.common.trim()) exist = true;
-   //    }
-   //    !exist ? await axios.post(BASE_URL + 'most-relevant', country) : '';
-   // };
-
    onMounted(async () => {
       try {
          const response = await axios.get('https://restcountries.com/v3.1/all');

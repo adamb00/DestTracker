@@ -1,12 +1,680 @@
 {
-   "most-relevant": [],
-   "users": [
-      {
-         "id": 1,
-         "name": "test",
-         "email": "test",
-         "password": "test",
-         "countries": []
-      }
-   ]
+  "most-relevant": [
+    {
+      "name": {
+        "common": "Albania",
+        "official": "Republic of Albania",
+        "nativeName": {
+          "sqi": {
+            "official": "Republika e Shqipërisë",
+            "common": "Shqipëria"
+          }
+        }
+      },
+      "capital": "Tirana",
+      "currencies": [
+        "ALL"
+      ],
+      "region": "Europe",
+      "languages": [
+        "Albanian"
+      ],
+      "flags": "https://flagcdn.com/w320/al.png",
+      "population": "2,837,743",
+      "cca3": "ALB",
+      "capitalInfo": {
+        "latlng": [
+          41.32,
+          19.82
+        ]
+      },
+      "latlng": [
+        41,
+        20
+      ],
+      "plannedDate": "2023-04-26T17:03:50.410Z",
+      "id": 1
+    },
+    {
+      "name": {
+        "common": "Bahamas",
+        "official": "Commonwealth of the Bahamas",
+        "nativeName": {
+          "eng": {
+            "official": "Commonwealth of the Bahamas",
+            "common": "Bahamas"
+          }
+        }
+      },
+      "capital": "Nassau",
+      "currencies": [
+        "BSD",
+        "USD"
+      ],
+      "region": "Americas",
+      "languages": [
+        "English"
+      ],
+      "flags": "https://flagcdn.com/w320/bs.png",
+      "population": "393,248",
+      "cca3": "BHS",
+      "capitalInfo": {
+        "latlng": [
+          25.08,
+          -77.35
+        ]
+      },
+      "latlng": [
+        25.0343,
+        77.3963
+      ],
+      "plannedDate": "2023-04-26T17:03:50.403Z",
+      "id": 2
+    },
+    {
+      "name": {
+        "common": "Bouvet Island",
+        "official": "Bouvet Island",
+        "nativeName": {
+          "nor": {
+            "official": "Bouvetøya",
+            "common": "Bouvetøya"
+          }
+        }
+      },
+      "capital": "N/A",
+      "currencies": [],
+      "region": "Antarctic",
+      "languages": [
+        "Norwegian"
+      ],
+      "flags": "https://flagcdn.com/w320/bv.png",
+      "population": "0",
+      "cca3": "BVT",
+      "capitalInfo": {},
+      "latlng": [
+        54.4208,
+        3.3464
+      ],
+      "plannedDate": "2023-04-26T17:03:50.405Z",
+      "id": 3
+    },
+    {
+      "name": {
+        "common": "Cape Verde",
+        "official": "Republic of Cabo Verde",
+        "nativeName": {
+          "por": {
+            "official": "República de Cabo Verde",
+            "common": "Cabo Verde"
+          }
+        }
+      },
+      "capital": "Praia",
+      "currencies": [
+        "CVE"
+      ],
+      "region": "Africa",
+      "languages": [
+        "Portuguese"
+      ],
+      "flags": "https://flagcdn.com/w320/cv.png",
+      "population": "555,988",
+      "cca3": "CPV",
+      "capitalInfo": {
+        "latlng": [
+          14.92,
+          -23.52
+        ]
+      },
+      "latlng": [
+        16.5388,
+        23.0418
+      ],
+      "plannedDate": "2023-04-26T17:03:50.404Z",
+      "id": 4
+    },
+    {
+      "name": {
+        "common": "Equatorial Guinea",
+        "official": "Republic of Equatorial Guinea",
+        "nativeName": {
+          "fra": {
+            "official": "République de la Guinée Équatoriale",
+            "common": "Guinée équatoriale"
+          },
+          "por": {
+            "official": "República da Guiné Equatorial",
+            "common": "Guiné Equatorial"
+          },
+          "spa": {
+            "official": "República de Guinea Ecuatorial",
+            "common": "Guinea Ecuatorial"
+          }
+        }
+      },
+      "capital": "Malabo",
+      "currencies": [
+        "XAF"
+      ],
+      "region": "Africa",
+      "languages": [
+        "French",
+        "Portuguese",
+        "Spanish"
+      ],
+      "flags": "https://flagcdn.com/w320/gq.png",
+      "population": "1,402,985",
+      "cca3": "GNQ",
+      "capitalInfo": {
+        "latlng": [
+          3.75,
+          8.78
+        ]
+      },
+      "latlng": [
+        2,
+        10
+      ],
+      "plannedDate": "2023-04-26T17:03:50.408Z",
+      "id": 5
+    },
+    {
+      "name": {
+        "common": "Australia",
+        "official": "Commonwealth of Australia",
+        "nativeName": {
+          "eng": {
+            "official": "Commonwealth of Australia",
+            "common": "Australia"
+          }
+        }
+      },
+      "capital": "Canberra",
+      "currencies": [
+        "AUD"
+      ],
+      "region": "Oceania",
+      "languages": [
+        "English"
+      ],
+      "flags": "https://flagcdn.com/w320/au.png",
+      "population": "25,687,041",
+      "cca3": "AUS",
+      "capitalInfo": {
+        "latlng": [
+          -35.27,
+          149.13
+        ]
+      },
+      "latlng": [
+        -27,
+        133
+      ],
+      "plannedDate": "2023-04-26T17:04:19.433Z",
+      "id": 6
+    },
+    {
+      "name": {
+        "common": "Cyprus",
+        "official": "Republic of Cyprus",
+        "nativeName": {
+          "ell": {
+            "official": "Δημοκρατία της Κύπρος",
+            "common": "Κύπρος"
+          },
+          "tur": {
+            "official": "Kıbrıs Cumhuriyeti",
+            "common": "Kıbrıs"
+          }
+        }
+      },
+      "capital": "Nicosia",
+      "currencies": [
+        "EUR"
+      ],
+      "region": "Europe",
+      "languages": [
+        "Greek",
+        "Turkish"
+      ],
+      "flags": "https://flagcdn.com/w320/cy.png",
+      "population": "1,207,361",
+      "cca3": "CYP",
+      "capitalInfo": {
+        "latlng": [
+          35.17,
+          33.37
+        ]
+      },
+      "latlng": [
+        35,
+        33
+      ],
+      "plannedDate": "2023-04-26T17:21:13.240Z",
+      "id": 7
+    },
+    {
+      "name": {
+        "common": "Mauritania",
+        "official": "Islamic Republic of Mauritania",
+        "nativeName": {
+          "ara": {
+            "official": "الجمهورية الإسلامية الموريتانية",
+            "common": "موريتانيا"
+          }
+        }
+      },
+      "capital": "Nouakchott",
+      "currencies": [
+        "MRU"
+      ],
+      "region": "Africa",
+      "languages": [
+        "Arabic"
+      ],
+      "flags": "https://flagcdn.com/w320/mr.png",
+      "population": "4,649,660",
+      "cca3": "MRT",
+      "capitalInfo": {
+        "latlng": [
+          18.07,
+          -15.97
+        ]
+      },
+      "latlng": [
+        20,
+        -12
+      ],
+      "plannedDate": "2023-04-26T17:22:02.910Z",
+      "id": 8
+    },
+    {
+      "name": {
+        "common": "Germany",
+        "official": "Federal Republic of Germany",
+        "nativeName": {
+          "deu": {
+            "official": "Bundesrepublik Deutschland",
+            "common": "Deutschland"
+          }
+        }
+      },
+      "capital": "Berlin",
+      "currencies": [
+        "EUR"
+      ],
+      "region": "Europe",
+      "languages": [
+        "German"
+      ],
+      "flags": "https://flagcdn.com/w320/de.png",
+      "population": "83,240,525",
+      "cca3": "DEU",
+      "capitalInfo": {
+        "latlng": [
+          52.52,
+          13.4
+        ]
+      },
+      "latlng": [
+        51,
+        9
+      ],
+      "plannedDate": "2023-04-26T17:27:41.911Z",
+      "id": 9
+    },
+    {
+      "name": {
+        "common": "Afghanistan",
+        "official": "Islamic Republic of Afghanistan",
+        "nativeName": {
+          "prs": {
+            "official": "جمهوری اسلامی افغانستان",
+            "common": "افغانستان"
+          },
+          "pus": {
+            "official": "د افغانستان اسلامي جمهوریت",
+            "common": "افغانستان"
+          },
+          "tuk": {
+            "official": "Owganystan Yslam Respublikasy",
+            "common": "Owganystan"
+          }
+        }
+      },
+      "capital": "Kabul",
+      "currencies": [
+        "AFN"
+      ],
+      "region": "Asia",
+      "languages": [
+        "Dari",
+        "Pashto",
+        "Turkmen"
+      ],
+      "flags": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
+      "population": "40,218,234",
+      "cca3": "AFG",
+      "capitalInfo": {
+        "latlng": [
+          34.52,
+          69.18
+        ]
+      },
+      "latlng": [
+        33,
+        65
+      ],
+      "plannedDate": "2023-04-26T17:28:07.608Z",
+      "id": 10
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "test",
+      "email": "test",
+      "password": "test",
+      "countries": [
+        {
+          "name": {
+            "common": "Albania",
+            "official": "Republic of Albania",
+            "nativeName": {
+              "sqi": {
+                "official": "Republika e Shqipërisë",
+                "common": "Shqipëria"
+              }
+            }
+          },
+          "capital": "Tirana",
+          "currencies": [
+            "ALL"
+          ],
+          "region": "Europe",
+          "languages": [
+            "Albanian"
+          ],
+          "flags": "https://flagcdn.com/w320/al.png",
+          "population": "2,837,743",
+          "cca3": "ALB",
+          "capitalInfo": {
+            "latlng": [
+              41.32,
+              19.82
+            ]
+          },
+          "latlng": [
+            41,
+            20
+          ],
+          "plannedDate": "2023-04-26T17:03:50.410Z"
+        },
+        {
+          "name": {
+            "common": "Bahamas",
+            "official": "Commonwealth of the Bahamas",
+            "nativeName": {
+              "eng": {
+                "official": "Commonwealth of the Bahamas",
+                "common": "Bahamas"
+              }
+            }
+          },
+          "capital": "Nassau",
+          "currencies": [
+            "BSD",
+            "USD"
+          ],
+          "region": "Americas",
+          "languages": [
+            "English"
+          ],
+          "flags": "https://flagcdn.com/w320/bs.png",
+          "population": "393,248",
+          "cca3": "BHS",
+          "capitalInfo": {
+            "latlng": [
+              25.08,
+              -77.35
+            ]
+          },
+          "latlng": [
+            25.0343,
+            77.3963
+          ],
+          "plannedDate": "2023-04-26T17:03:50.403Z",
+          "id": 2
+        },
+        {
+          "name": {
+            "common": "Bouvet Island",
+            "official": "Bouvet Island",
+            "nativeName": {
+              "nor": {
+                "official": "Bouvetøya",
+                "common": "Bouvetøya"
+              }
+            }
+          },
+          "capital": "N/A",
+          "currencies": [],
+          "region": "Antarctic",
+          "languages": [
+            "Norwegian"
+          ],
+          "flags": "https://flagcdn.com/w320/bv.png",
+          "population": "0",
+          "cca3": "BVT",
+          "capitalInfo": {},
+          "latlng": [
+            54.4208,
+            3.3464
+          ],
+          "plannedDate": "2023-04-26T17:03:50.405Z",
+          "id": 3
+        },
+        {
+          "name": {
+            "common": "Cape Verde",
+            "official": "Republic of Cabo Verde",
+            "nativeName": {
+              "por": {
+                "official": "República de Cabo Verde",
+                "common": "Cabo Verde"
+              }
+            }
+          },
+          "capital": "Praia",
+          "currencies": [
+            "CVE"
+          ],
+          "region": "Africa",
+          "languages": [
+            "Portuguese"
+          ],
+          "flags": "https://flagcdn.com/w320/cv.png",
+          "population": "555,988",
+          "cca3": "CPV",
+          "capitalInfo": {
+            "latlng": [
+              14.92,
+              -23.52
+            ]
+          },
+          "latlng": [
+            16.5388,
+            23.0418
+          ],
+          "plannedDate": "2023-04-26T17:03:50.404Z",
+          "id": 4
+        },
+        {
+          "name": {
+            "common": "Equatorial Guinea",
+            "official": "Republic of Equatorial Guinea",
+            "nativeName": {
+              "fra": {
+                "official": "République de la Guinée Équatoriale",
+                "common": "Guinée équatoriale"
+              },
+              "por": {
+                "official": "República da Guiné Equatorial",
+                "common": "Guiné Equatorial"
+              },
+              "spa": {
+                "official": "República de Guinea Ecuatorial",
+                "common": "Guinea Ecuatorial"
+              }
+            }
+          },
+          "capital": "Malabo",
+          "currencies": [
+            "XAF"
+          ],
+          "region": "Africa",
+          "languages": [
+            "French",
+            "Portuguese",
+            "Spanish"
+          ],
+          "flags": "https://flagcdn.com/w320/gq.png",
+          "population": "1,402,985",
+          "cca3": "GNQ",
+          "capitalInfo": {
+            "latlng": [
+              3.75,
+              8.78
+            ]
+          },
+          "latlng": [
+            2,
+            10
+          ],
+          "plannedDate": "2023-04-26T17:03:50.408Z",
+          "id": 5
+        },
+        {
+          "name": {
+            "common": "Australia",
+            "official": "Commonwealth of Australia",
+            "nativeName": {
+              "eng": {
+                "official": "Commonwealth of Australia",
+                "common": "Australia"
+              }
+            }
+          },
+          "capital": "Canberra",
+          "currencies": [
+            "AUD"
+          ],
+          "region": "Oceania",
+          "languages": [
+            "English"
+          ],
+          "flags": "https://flagcdn.com/w320/au.png",
+          "population": "25,687,041",
+          "cca3": "AUS",
+          "capitalInfo": {
+            "latlng": [
+              -35.27,
+              149.13
+            ]
+          },
+          "latlng": [
+            -27,
+            133
+          ],
+          "plannedDate": "2023-04-26T17:04:19.433Z",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "admin",
+      "email": "admina",
+      "password": "admin",
+      "countries": []
+    },
+    {
+      "id": 3,
+      "name": "admin",
+      "email": "admin",
+      "password": "admin",
+      "countries": [
+        {
+          "name": {
+            "common": "Germany",
+            "official": "Federal Republic of Germany",
+            "nativeName": {
+              "deu": {
+                "official": "Bundesrepublik Deutschland",
+                "common": "Deutschland"
+              }
+            }
+          },
+          "capital": "Berlin",
+          "currencies": [
+            "EUR"
+          ],
+          "region": "Europe",
+          "languages": [
+            "German"
+          ],
+          "flags": "https://flagcdn.com/w320/de.png",
+          "population": "83,240,525",
+          "cca3": "DEU",
+          "capitalInfo": {
+            "latlng": [
+              52.52,
+              13.4
+            ]
+          },
+          "latlng": [
+            51,
+            9
+          ],
+          "plannedDate": "2025-05-25",
+          "id": 9
+        },
+        {
+          "name": {
+            "common": "Albania",
+            "official": "Republic of Albania",
+            "nativeName": {
+              "sqi": {
+                "official": "Republika e Shqipërisë",
+                "common": "Shqipëria"
+              }
+            }
+          },
+          "capital": "Tirana",
+          "currencies": [
+            "ALL"
+          ],
+          "region": "Europe",
+          "languages": [
+            "Albanian"
+          ],
+          "flags": "https://flagcdn.com/w320/al.png",
+          "population": "2,837,743",
+          "cca3": "ALB",
+          "capitalInfo": {
+            "latlng": [
+              41.32,
+              19.82
+            ]
+          },
+          "latlng": [
+            41,
+            20
+          ],
+          "plannedDate": "2023-04-26T17:28:37.176Z"
+        }
+      ]
+    }
+  ]
 }
