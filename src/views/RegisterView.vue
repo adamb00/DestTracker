@@ -39,14 +39,29 @@
    const pwdAgain = ref<string>();
 
    const register = async () => {
+      const users: User[] = (await axios.get(BASE_URL + 'users')).data;
+      const usersId = users.map((x: User) => x.id);
+
       if (name.value && email.value && pwd.value) {
          const user: User = {
+            id: Math.max(...usersId) + 1,
             name: name.value,
             email: email.value,
             password: pwd.value,
+            countries: [],
          };
-
-         pwd.value === pwdAgain.value ? await axios.post(BASE_URL + 'users', user, header) : alert('Passwords are not equal');
+         let exist = false;
+         users.forEach(x => {
+            if (x.email === email.value) exist = true;
+         });
+         if (!exist && pwd.value === pwdAgain.value) {
+            await axios.post(BASE_URL + 'users', user, header);
+            alert('Successfully registered');
+         } else if (pwd.value !== pwdAgain.value) {
+            alert('Passwords are not equal');
+         } else if (exist) {
+            alert('Email already registered');
+         }
       }
    };
 </script>

@@ -18,21 +18,28 @@
 </template>
 <script setup lang="ts">
    import NavComponent from '../components/NavComponent.vue';
+   import { useCounterStore } from '@/stores/ServiceStore';
    import User from '../Public/IUser';
    import { ref } from 'vue';
    import { BASE_URL } from '@/main';
    import axios from 'axios';
+   import { useRouter } from 'vue-router';
 
    const email = ref<string>('');
    const pwd = ref<string>('');
 
+   const userStore = useCounterStore();
+   const router = useRouter();
+
    const login = async () => {
       const res = (await axios.get(BASE_URL + 'users')).data;
-      const exist: boolean = res.find((x: User) => x.email == email.value);
+      const exist: User = res.find((x: User) => x.email == email.value);
 
-      if (exist) {
-         localStorage.setItem('user', email.value);
-      }
+      if (exist && exist.password === pwd.value) {
+         userStore.user = exist;
+         router.replace('/');
+      } else if (!exist) alert('Please register first');
+      else if (exist.password !== pwd.value) alert('Passwords are not the same');
    };
 </script>
 <style lang="scss">

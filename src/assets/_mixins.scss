@@ -9,10 +9,7 @@
 
    display: flex;
    flex-direction: column;
-   gap: 5rem;
-   @if ($watchList: true) {
-      gap: 2rem;
-   }
+   gap: 3rem;
 
    &--image {
       width: 100%;
@@ -24,9 +21,7 @@
       } @else {
          color: $color-grey-light-2;
       }
-      @if ($watchList: true) {
-         padding: 2rem;
-      }
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -44,13 +39,18 @@
    &--languages {
       display: contents;
    }
+   &--date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
    @if ($watchList: true) {
       &--buttons {
          display: flex;
          align-items: center;
          justify-content: center;
-         gap: 2rem;
          margin-bottom: 2rem;
+         gap: 2rem;
       }
    }
 }

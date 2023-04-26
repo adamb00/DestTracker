@@ -31,19 +31,17 @@
    </nav>
 </template>
 <script setup lang="ts">
-   import { loggedIn } from '@/main';
-   import router from '@/router';
-   import { onMounted } from 'vue';
+   import { ref } from 'vue';
+   import { useRouter } from 'vue-router';
+   import { useCounterStore } from '@/stores/ServiceStore';
+
+   const router = useRouter();
+   const userStore = useCounterStore().user;
+   const loggedIn = ref(userStore);
 
    const logout = () => {
-      localStorage.removeItem('user');
-      router.push('/home');
+      router.replace('/');
    };
-
-   onMounted(async () => {
-      const logged = loggedIn;
-      if (logged) console.log('lol');
-   });
 </script>
 <style lang="scss">
    .navbar {

@@ -9,7 +9,7 @@
             </select>
          </div>
          <CardComponent v-if="selected" :country="selected" :watchlist="false" class="card" />
-         <button v-if="selected" class="btn" type="submit" @click="addToWatchList(selected!)">Add to Watchlist</button>
+         <button v-if="selected && loggedIn" class="btn" type="submit" @click="addToWatchList(selected!), addToMostRelevant(selected!)">Add to Watchlist</button>
       </div>
       <div class="map-container">
          <div class="header-primary" v-if="selected">{{ selected.name.official }}</div>
@@ -27,12 +27,16 @@
    import * as L from 'leaflet';
    import 'leaflet/dist/leaflet.css';
    import { BASE_URL } from './../main';
+   import { useCounterStore } from '@/stores/ServiceStore';
+   import User from '@/Public/IUser';
+
+   const userState = useCounterStore().user;
+   const loggedIn = ref(userState);
 
    const latitude = ref<number>();
    const longitude = ref<number>();
    const selected = ref<Country>();
    const countries = ref<Country[]>([]);
-   const header: object = { 'Content-Type': 'application/json' };
 
    let map: L.Map;
    let marker: L.Marker;
@@ -59,28 +63,44 @@
    };
 
    const addToWatchList = async (country: Country) => {
-      const res = (await axios.get(BASE_URL + 'countries')).data;
+      if (loggedIn.value) {
+         const user: User = (await axios.get(BASE_URL + 'users' + '/' + loggedIn.value.id)).data;
+         let exist = false;
+         user.countries.forEach(x => {
+            if (x.name.common === country.name.common) exist = true;
+         });
+
+         if (!exist) {
+            user.countries.push(country);
+            loggedIn.value.countries.push(country);
+            try {
+               await axios.patch(BASE_URL + 'users' + '/' + user.id, user);
+            } catch (err) {
+               console.log(err);
+            }
+         }
+      }
+   };
+
+   const addToMostRelevant = async (country: Country) => {
+      const res = (await axios.get(BASE_URL + 'most-relevant')).data;
       let id: number;
       if (res.length === 0) id = 1;
       else {
          const lastID = res.at(-1).id;
          id = lastID + 1;
       }
-
       country.id = id;
-
       let exist = false;
       for (const r in res) {
          if (res[r].name.common.trim() === country.name.common.trim()) exist = true;
       }
-      if (!exist) await axios.post(BASE_URL + 'countries', country, header);
-      else return;
+      !exist ? await axios.post(BASE_URL + 'most-relevant', country) : '';
    };
 
    onMounted(async () => {
       try {
          const response = await axios.get('https://restcountries.com/v3.1/all');
-         // eslint-disable-next-line @typescript-eslint/no-explicit-any
          countries.value = response.data.map((country: Country) => {
             return {
                name: country.name,
@@ -88,7 +108,7 @@
                currencies: Object.keys(country.currencies ?? {}),
                region: country.region,
                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-               languages: Object.entries(country.languages ?? {}).map(([code, name]) => name),
+               languages: Object.entries(country.languages ?? {}).map(([_, name]): string => name),
                flags: country.flags.png,
                population: country.population.toLocaleString('en-US'),
                cca3: country.cca3,
