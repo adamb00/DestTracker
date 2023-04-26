@@ -8,11 +8,11 @@
                <option :value="country" v-for="(country, i) in countries" :key="i">{{ country.name.common }}</option>
             </select>
          </div>
-         <CardComponent v-if="selected" :country="selected" :watchlist="false" class="card" />
-         <button v-if="selected && loggedIn" class="btn" type="submit" @click="addToWatchList(selected!), addToMostRelevant(selected!)">Add to Watchlist</button>
+         <CardComponent v-if="selected" :country="selected" :watchlist="false" :selected="selected" class="select-container__card" />
+         <!-- <button v-if="selected && loggedIn" class="btn" type="submit" @click="addToWatchList(selected!), addToMostRelevant(selected!)">Add to Watchlist</button> -->
       </div>
       <div class="map-container">
-         <div class="header-primary" v-if="selected">{{ selected.name.official }}</div>
+         <h1 class="heading-primary" v-if="selected">{{ selected.name.official }}</h1>
          <div class="map" id="map"></div>
       </div>
    </div>
@@ -21,17 +21,11 @@
    import NavComponent from '../components/NavComponent.vue';
    // import SearchComponent from '@/components/SearchComponent.vue';
    import CardComponent from '@/components/CardComponent.vue';
-   import Country from '@/Public/ICountry';
+   import Country from '@/stores/ICountry';
    import { onMounted, ref, watch } from 'vue';
    import axios from 'axios';
    import * as L from 'leaflet';
    import 'leaflet/dist/leaflet.css';
-   import { BASE_URL } from './../main';
-   import { useCounterStore } from '@/stores/ServiceStore';
-   import User from '@/Public/IUser';
-
-   const userState = useCounterStore().user;
-   const loggedIn = ref(userState);
 
    const latitude = ref<number>();
    const longitude = ref<number>();
@@ -62,41 +56,41 @@
       }
    };
 
-   const addToWatchList = async (country: Country) => {
-      if (loggedIn.value) {
-         const user: User = (await axios.get(BASE_URL + 'users' + '/' + loggedIn.value.id)).data;
-         let exist = false;
-         user.countries.forEach(x => {
-            if (x.name.common === country.name.common) exist = true;
-         });
+   // const addToWatchList = async (country: Country) => {
+   //    if (loggedIn.value) {
+   //       const user: User = (await axios.get(BASE_URL + 'users' + '/' + loggedIn.value.id)).data;
+   //       let exist = false;
+   //       user.countries.forEach(x => {
+   //          if (x.name.common === country.name.common) exist = true;
+   //       });
 
-         if (!exist) {
-            user.countries.push(country);
-            loggedIn.value.countries.push(country);
-            try {
-               await axios.patch(BASE_URL + 'users' + '/' + user.id, user);
-            } catch (err) {
-               console.log(err);
-            }
-         }
-      }
-   };
+   //       if (!exist) {
+   //          user.countries.push(country);
+   //          loggedIn.value.countries.push(country);
+   //          try {
+   //             await axios.patch(BASE_URL + 'users' + '/' + user.id, user);
+   //          } catch (err) {
+   //             console.log(err);
+   //          }
+   //       }
+   //    }
+   // };
 
-   const addToMostRelevant = async (country: Country) => {
-      const res = (await axios.get(BASE_URL + 'most-relevant')).data;
-      let id: number;
-      if (res.length === 0) id = 1;
-      else {
-         const lastID = res.at(-1).id;
-         id = lastID + 1;
-      }
-      country.id = id;
-      let exist = false;
-      for (const r in res) {
-         if (res[r].name.common.trim() === country.name.common.trim()) exist = true;
-      }
-      !exist ? await axios.post(BASE_URL + 'most-relevant', country) : '';
-   };
+   // const addToMostRelevant = async (country: Country) => {
+   //    const res = (await axios.get(BASE_URL + 'most-relevant')).data;
+   //    let id: number;
+   //    if (res.length === 0) id = 1;
+   //    else {
+   //       const lastID = res.at(-1).id;
+   //       id = lastID + 1;
+   //    }
+   //    country.id = id;
+   //    let exist = false;
+   //    for (const r in res) {
+   //       if (res[r].name.common.trim() === country.name.common.trim()) exist = true;
+   //    }
+   //    !exist ? await axios.post(BASE_URL + 'most-relevant', country) : '';
+   // };
 
    onMounted(async () => {
       try {
@@ -152,15 +146,15 @@
       display: flex;
       padding: 0 1rem;
       align-items: center;
+      gap: 1rem;
    }
    .select-container {
       width: 30%;
       height: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       flex-direction: column;
       align-items: center;
-      gap: 3rem;
 
       &__inputs {
          display: flex;
@@ -175,29 +169,16 @@
          }
       }
    }
-   .card {
-      @include card($dark: false, $watchList: false);
-   }
    .map-container {
       height: 90%;
       width: 70%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
    }
 
-   .header-primary {
-      font-size: 2.5rem;
-      letter-spacing: 0.3rem;
-      color: $color-grey-light-2;
-      height: 10%;
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-   }
    #map {
       width: 100%;
-      height: 90%;
+      height: 100%;
       display: flex;
    }
 </style>

@@ -1,10 +1,10 @@
 <template>
    <NavComponent />
-   <div class="my-countries__container">
+   <div class="my-countries__container" v-if="countriesList.size > 0">
       <div class="my-countries__row">
          <div class="my-countries__card" v-for="(country, i) in countriesList" :key="i">
             <div class="my-countries__card--details">
-               <CardDetailsComponent :country="country" />
+               <CardDetailsComponent :country="country" :watchlist="true" />
                <div class="my-countries__card--date">
                   <label for="plannedDate" class="key">Select a date: </label>
                   <input type="date" name="plannedDate" v-model="country.plannedDate" class="value" />
@@ -17,16 +17,20 @@
          </div>
       </div>
    </div>
+   <div class="my-countries__container" v-else>
+      <h1 class="heading-primary">There is no country in Your list!</h1>
+      <h2 class="heading-secondary">Click on the <RouterLink to="/countries" class="heading-secondary__link">link</RouterLink> for browse.</h2>
+   </div>
 </template>
 <script setup lang="ts">
    import NavComponent from '../components/NavComponent.vue';
    import CardDetailsComponent from '@/components/CardDetailsComponent.vue';
-   import Country from '@/Public/ICountry';
+   import Country from '@/stores/ICountry';
    import { BASE_URL } from '@/main';
    import axios from 'axios';
    import { onMounted, ref } from 'vue';
    import { useCounterStore } from '@/stores/ServiceStore';
-   import User from '@/Public/IUser';
+   import User from '@/stores/IUser';
 
    const userState = useCounterStore().user;
    const loggedIn = ref(userState);
@@ -96,28 +100,7 @@
          gap: 2rem;
       }
       &__card {
-         @include card($dark: true, $watchList: false);
-
-         &--date {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            .key {
-               color: $color-primary;
-               font-size: 1.5rem;
-            }
-            .value {
-               &,
-               &:active,
-               &:visited {
-                  font-size: 1.4rem;
-                  font-style: italic;
-                  border: none;
-                  color: currentColor;
-               }
-            }
-         }
+         @include card($watchList: true);
       }
    }
 </style>

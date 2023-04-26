@@ -1,31 +1,26 @@
-@mixin card($dark: true, $watchList: false) {
-   min-width: 80%;
-   min-height: 60%;
-   @if $dark {
-      border: 1px solid $color-grey-dark-1;
-   } @else {
-      border: 1px solid $color-grey-light-1;
-   }
-
+@mixin card($watchList: true) {
    display: flex;
    flex-direction: column;
-   gap: 3rem;
+   justify-content: center;
+   overflow: scroll;
+   gap: 1rem;
+   border: 1px solid $color-grey-dark-1;
+   @if ($watchList == false) {
+      justify-content: flex-start;
+      min-width: 100%;
+      height: 90%;
+   }
 
    &--image {
       width: 100%;
-      height: 40%;
+      height: 35%;
+      border-bottom: 1px solid currentColor;
    }
    &--details {
-      @if $dark {
-         color: $color-grey-dark-2;
-      } @else {
-         color: $color-grey-light-2;
-      }
-
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.5em;
 
       .key {
          color: $color-primary;
@@ -34,6 +29,7 @@
       .value {
          font-size: 1.4rem;
          font-style: italic;
+         color: $color-grey-dark-1;
       }
    }
    &--languages {
@@ -43,14 +39,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-   }
-   @if ($watchList: true) {
-      &--buttons {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         margin-bottom: 2rem;
-         gap: 2rem;
+      .value {
+         border: none;
       }
+      &,
+      &:active,
+      &:focus {
+         color: $color-grey-dark-1;
+      }
+   }
+   &--buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem;
+      gap: 2rem;
    }
 }

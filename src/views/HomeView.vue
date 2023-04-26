@@ -1,10 +1,11 @@
 <template>
    <NavComponent />
+
    <h1 class="heading-primary">Most relevant destinations</h1>
    <div class="home-container">
       <div class="home-container__row">
          <div class="home-container__card" v-for="(country, i) in countriesList" :key="i">
-            <CardComponent :country="country" :watchlist="false" class="card" />
+            <CardComponent :country="country" :watchlist="false" />
          </div>
       </div>
    </div>
@@ -16,7 +17,7 @@
    import { ref, onMounted } from 'vue';
    import axios from 'axios';
    import { BASE_URL } from '@/main';
-   import Country from '@/Public/ICountry';
+   import Country from '@/stores/ICountry';
 
    const countriesList = ref<Set<Country>>(new Set());
 
@@ -29,14 +30,16 @@
 </script>
 <style lang="scss">
    .home-container {
+      padding: 2rem;
+      height: auto;
       &__row {
          display: grid;
-         grid-template-columns: repeat(3, minmax(5rem, 1fr));
-         gap: 2rem;
-         .card {
-            @include card($dark: true, $watchList: false);
-            padding: 3rem;
-         }
+         grid-template-columns: repeat(3, minmax(10rem, 1fr));
+         gap: 3rem;
+         row-gap: 22rem;
+      }
+      &__card {
+         height: 200% !important;
       }
    }
 </style>

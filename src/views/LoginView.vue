@@ -19,7 +19,7 @@
 <script setup lang="ts">
    import NavComponent from '../components/NavComponent.vue';
    import { useCounterStore } from '@/stores/ServiceStore';
-   import User from '../Public/IUser';
+   import User from '../stores/IUser';
    import { ref } from 'vue';
    import { BASE_URL } from '@/main';
    import axios from 'axios';

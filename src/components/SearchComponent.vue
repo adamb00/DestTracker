@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
    import { onMounted, ref } from 'vue';
-   import Country from '@/Public/ICountry';
+   import Country from '@/stores/ICountry';
    import axios from 'axios';
 
    const inputField = ref<string>('');
