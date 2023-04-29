@@ -21,8 +21,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-vite.config.ts
-tsconfig.node.json
-package.json
 env.d.ts
-vue.config.ts
